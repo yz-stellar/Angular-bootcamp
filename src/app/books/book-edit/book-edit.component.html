@@ -1,0 +1,14 @@
+<p>book-edit works!</p>
+
+<form #form="ngForm" *ngIf="book" (ngSubmit)="save(form)">
+    <input type="text" [(ngModel)]="book.title" name="title" #title="ngModel" required> <br/>
+    <span [hidden]="!title.errors?.required || title.pristine">need title !</span> <br/>
+
+    <input type="text" [(ngModel)]="book.author" name="author" #author="ngModel"> <br/>
+    <span [hidden]="!author.errors?.required || author.pristine">need author !</span> <br/>
+
+    <input type="text" [(ngModel)]="book.abstract" name="abstract" #abstract="ngModel"> <br/>
+    <span [hidden]="!abstract.errors?.required || abstract.pristine">need abstract !</span> <br/>
+
+    <input type="submit" value="submit"/>
+</form>

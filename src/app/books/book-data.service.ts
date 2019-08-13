@@ -6,9 +6,15 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class BookDataService {
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-   getBooks():Observable<Book[]>{
-    return this.http.get<Book[]>('http://localhost:4730/books')
-   }
+  getBooks(): Observable<Book[]> {
+    return this.http
+      .get<Book[]>('http://localhost:4730/books');
+  }
+
+  getBookByIsbn(isbn: string): Observable<Book> {
+    return this.http
+      .get<Book>('http://localhost:4730/books/' + isbn);
+  }
 }
